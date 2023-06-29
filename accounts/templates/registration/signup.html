@@ -1,0 +1,14 @@
+
+
+<form method='POST' style="margin-top: 60px;">
+
+    {% csrf_token %}
+    <div style="padding:50px 50px ; width:15%; border-radius: 15px; margin: auto;  box-shadow: 3px -1px 16px -4px rgba(0, 0, 0, 0.75);">
+        <h2> Signup Form</h2>
+        {{form}}
+        <br>
+        <input style="background-color: aquamarine; margin: 2px; padding: 10px;"type="submit" value="Signup">
+    </div>
+   
+
+</form>

@@ -4,7 +4,8 @@ from .forms import SignupForm ,UserForm ,ProfileForm
 from django.contrib.auth import authenticate , login
 # Create your views here.
 
-
+def show_index(request):
+    return render(request,'registration/index.html')
 def signup(request):
     if request.method=='POST':
         form=SignupForm(request.POST)

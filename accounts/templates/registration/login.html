@@ -14,7 +14,7 @@
       <p>Please login to see this page.</p>
     {% endif %}
   {% endif %}
-
+<div style="padding:50px 50px ; width:15%; border-radius: 15px; margin: 200px 600px;  box-shadow: 3px -1px 16px -4px rgba(0, 0, 0, 0.75);">
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table>
@@ -30,8 +30,11 @@
     <input type="submit" value="login">
     <input type="hidden" name="next" value="{{ next }}">
   </form>
-
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</div>
+ 
+
+  
 
 {% endblock %}

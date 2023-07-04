@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%n6qq9fpjw@qr9go5s-i*_naly)3a5w53p#9&$3u(29=aoqz+8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -132,6 +132,7 @@ STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL='/accounts/profile'
 AUTHENTICATION_BACKENDS =['accounts.backends.EmailBackend']
 SITE_ID = 1
+STATIC_ROOT = "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]

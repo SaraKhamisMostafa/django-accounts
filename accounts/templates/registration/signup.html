@@ -1,14 +1,29 @@
+{% extends "base_generic.html" %}
+{% load static%}
+{% block content %}
 
-
-<form method='POST' style="margin-top: 60px;">
-
+{% block body %}
+			
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+<form method='POST'style="height: 700px;">
     {% csrf_token %}
-    <div style="padding:50px 50px ; width:15%; border-radius: 15px; margin: auto;  box-shadow: 3px -1px 16px -4px rgba(0, 0, 0, 0.75);">
-        <h2> Signup Form</h2>
-        {{form}}
-        <br>
-        <input style="background-color: aquamarine; margin: 2px; padding: 10px;"type="submit" value="Signup">
-    </div>
-   
+            <h3> Signup</h3>
+        <label>{{ form.username.label_tag }}</label>
+        <input type="text" placeholder="Username" id="{{ form.username }}">
+        <label >{{form.email.label_tag}}</label>
+        <input type="email" name="email"placeholder="Email"id="{{form.email}}">
+        <label>{{ form.password1.label_tag }}</label>
+        <input type="password" placeholder="Password" id="{{ form.password1 }}">
+        <label>{{ form.password2.label_tag }}</label>  
+        <input type="password" placeholder="Password conformation" id="{{form.password2}}">
+        <input type="submit" value="Signup">
+        <input type="hidden" name="next" value="{{ next }}">
+    
 
 </form>
+{% endblock body %}
+
+{% endblock %}

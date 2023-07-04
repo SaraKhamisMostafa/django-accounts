@@ -1,9 +1,20 @@
+{% extends "base_generic.html" %}
+{% load static%}
+{% block content %}
+{% block body %}
+<div class="background">
+    <div class="shape" ></div>
+    <div class="shape" ></div>
+  </div>
 <h2>Profile Edit</h2>
 
 
-<form method="POST">
+<form method="POST" style="height: 900px;">
     {% csrf_token %}
     {{userform}}
     {{profileform}}
     <input type="submit" value="Edit Profile">
 </form>
+{% endblock body %}
+
+{% endblock %}

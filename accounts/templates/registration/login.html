@@ -1,21 +1,21 @@
 {% extends "base_generic.html" %}
-
+{% load static%}
 {% block content %}
-
+<!--<div style="padding:50px 50px ; width:15%; border-radius: 15px; margin: 200px 600px;  box-shadow: 3px -1px 16px -4px rgba(0, 0, 0, 0.75);">
   {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+  <p>Your username and password didn't match. Please try again.</p>
   {% endif %}
 
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
-    {% else %}
-      <p>Please login to see this page.</p>
-    {% endif %}
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+  {% else %}
+    <p>Please login to see this page.</p>
   {% endif %}
-<div style="padding:50px 50px ; width:15%; border-radius: 15px; margin: 200px 600px;  box-shadow: 3px -1px 16px -4px rgba(0, 0, 0, 0.75);">
-  <form method="post" action="{% url 'login' %}">
+{% endif %}
+  <form method='POST' action="{% url 'login' %}">
+
     {% csrf_token %}
     <table>
       <tr>
@@ -32,9 +32,46 @@
   </form>
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</div>-->
+{% block body %}
+<div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
 </div>
- 
-
+<div>
+  {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+      
+      {% if next %}
+        {% if user.is_authenticated %}
+          <p>Your account doesn't have access to this page. To proceed,
+          please login with an account that has access.</p>
+        {% else %}
+          <p>Please login to see this page.</p>
+        {% endif %}
+      {% endif %}
+<form method='POST' action="{% url 'login' %}">
   
+  {% csrf_token %}
+  <h3>Login Here</h3>
+
+  <label>{{ form.username.label_tag }}</label>
+  <input type="text" placeholder="Email or Phone" id="{{ form.username }}"></input>
+
+  <label>{{ form.password.label_tag }}</label>
+  <input type="password" placeholder="Password" id="{{ form.password }}"></input>
+
+    <input type="submit" value="Login">
+    <input type="hidden" name="next" value="{{ next }}">
+  
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</form>
+
+</div>
+
+
+{% endblock body %}
 
 {% endblock %}

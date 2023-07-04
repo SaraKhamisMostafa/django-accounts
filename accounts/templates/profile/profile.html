@@ -1,9 +1,26 @@
-<h2>
-    {{profile.user}}
-</h2>
-<h2>
-    {{profile.user.email}}
-</h2>
-<h2>
-    {{profile.phone_number}}
-</h2>
+{% extends "base_generic.html" %}
+{% load static%}
+{% block content %}
+{% block body %}
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form style="width: 700px;">
+        <h3>
+            {{profile.user}}
+        </h3>
+        <h3>
+            {{profile.user.email}}
+        </h3>
+        <h3>
+            {{profile.phone_number}}
+        </h3>
+        
+        <a href="{% url 'logout'%}"> Logout</a>
+    
+</form>
+
+{% endblock body %}
+
+{% endblock %}

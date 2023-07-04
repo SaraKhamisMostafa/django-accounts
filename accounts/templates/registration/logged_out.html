@@ -1,6 +1,18 @@
 {% extends "base_generic.html" %}
-
+{% load static%}
 {% block content %}
-  <p>Logged out!</p>
-  <a href="{% url 'login'%}">Click here to login again.</a>
+{% block body %}
+<div class="background">
+  <div class="shape" style="position: absolute; transform: translate(30%,80%);"></div>
+  <div class="shape" style="position: absolute; transform: translate(-20%,-80%);"></div>
+</div>
+<form style="height: 200px;">
+  <h3>Logged out!</h3>
+  <br>
+  <br>
+  <a  href="{% url 'login'%}">Click here to login again.</a>
+</form>
+  
+{% endblock body %}
+
 {% endblock %}

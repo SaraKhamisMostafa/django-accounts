@@ -130,9 +130,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL='/accounts/profile'
-AUTHENTICATION_BACKENDS =[    'accounts.backends.EmailBackend',
-                              'allauth.account.auth_backends.AuthenticationBackend',
-                              ]
+AUTHENTICATION_BACKENDS = [    'django.contrib.auth.backends.ModelBackend',    'allauth.account.auth_backends.AuthenticationBackend',]
 SITE_ID = 1
 STATIC_ROOT = "staticfiles"
 STATICFILES_DIRS = [
